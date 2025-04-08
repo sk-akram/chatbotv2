@@ -1,4 +1,3 @@
-from gemini_setup import get_response
 import streamlit as st
 import google.generativeai as genai
 
