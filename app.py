@@ -17,8 +17,8 @@ def get_response(prompt):
 
 # print(get_response("What is the capital of Maharastra?"))
 
-st.set_page_config(page_title="🤖 Welcome to Bot Server!!", layout="centered")
-
+st.set_page_config(page_title="🤖Hey There!!", layout="centered")
+st.title("🤖 Welcome to Bot Server!!")
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
