@@ -26,21 +26,21 @@ if "messages" not in st.session_state:
 # send = st.button("Send")
 
 
-def build_context(current_question):
-    context = "You are a helpful assistant.\n"
-    context += "Use the following previous user questions as context.\n"
-    context += "Do NOT answer them again.\n"
-    context += "Only answer the current question below.\n\n"
+# def build_context(current_question):
+#     context = "You are a helpful assistant.\n"
+#     context += "Use the following previous user questions as context.\n"
+#     context += "Do NOT answer them again.\n"
+#     context += "Only answer the current question below.\n\n"
     
-    context += "Previous questions:\n"
-    for msg in st.session_state.messages:
-        if msg['role'] == 'user':
-            context += f"- {msg['text']}\n"
+#     context += "Previous questions:\n"
+#     for msg in st.session_state.messages:
+#         if msg['role'] == 'user':
+#             context += f"- {msg['text']}\n"
 
-    context += f"\nCurrent question:\n{current_question}\n"
-    context += "Only respond to the current question using the context above."
-    context += "No need to get too serious."
-    return context
+#     context += f"\nCurrent question:\n{current_question}\n"
+#     context += "Only respond to the current question using the context above."
+#     context += "No need to get too serious."
+#     return context
 
 with st.form(key="chat_form", clear_on_submit=True):
     user_input = st.text_area(
@@ -56,8 +56,8 @@ with st.form(key="chat_form", clear_on_submit=True):
 
 if submit and user_input.strip():
     st.session_state.messages.append({'role':'user','text':user_input})
-    context_input = build_context(user_input)
-    bot_res = get_response(context_input)
+    # context_input = build_context(user_input)
+    bot_res = get_response(user_input)
     st.session_state.messages.append({'role':'bot','text':bot_res})
     st.rerun()
 
